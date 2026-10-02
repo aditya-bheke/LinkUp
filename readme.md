@@ -21,12 +21,12 @@ Live Link : [LinkUp](https://social-media-app-nu-two-29.vercel.app/)
 ## Screenshots
 
 <div align="center">
-  <img src="img.png" width="60%" alt="Login" />
+  <img src="docs/images/login.png" width="60%" alt="Login" />
 </div>
 
 <div align="center">
-  <img src="img_1.png" width="45%" alt="Home feed with posts and trending" />
-  <img src="img_2.png" width="45%" alt="Home feed with posts and trending" />
+  <img src="docs/images/feed-1.png" width="45%" alt="Home feed with posts and trending" />
+  <img src="docs/images/feed-2.png" width="45%" alt="Home feed with posts and trending" />
 </div>
 
 ## Tech Stack
@@ -57,7 +57,7 @@ The backend follows a lightweight MVC/layered structure with routes, controllers
 
 ## Data Model
 <div align="center">
-  <img src="schema.png" width="45%"  alt="Login" />
+  <img src="docs/images/schema.png" width="45%" alt="Database schema" />
 </div>
 
 ## API
@@ -95,6 +95,24 @@ DELETE /media/delete/:fileName
 GET    /media/file/:fileName
 ```
 
+## Project Structure
+
+```text
+LinkUp/
+├── api/index.js        # Vercel serverless entry, wraps the Express app
+├── client/             # React + Vite frontend
+│   └── src/            # api/, components/, context/, pages/, utils/
+├── server/             # Express backend
+│   ├── config/         # MongoDB and Cloudflare R2 setup
+│   ├── controllers/    # Request handlers
+│   ├── middlewares/    # Auth and rate limiting
+│   ├── routes/         # auth, posts, users, media
+│   └── schema.js       # Mongoose models
+├── docs/               # Deployment and CI/CD guides, README images
+├── package.json        # Root scripts + backend deps for Vercel
+└── vercel.json         # Build, rewrites and function config
+```
+
 ## Local Development
 
 ### Requirements
@@ -109,7 +127,7 @@ GET    /media/file/:fileName
 npm run install:all
 ```
 
-Create `server/.env`:
+Create `server/.env` (copy `server/.env.example`):
 
 ```env
 PORT=8080

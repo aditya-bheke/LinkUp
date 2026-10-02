@@ -8,7 +8,7 @@ GitHub repo (one project)
         ▼
      Vercel
       │  │
-      │  └── /api/*    →  api/[[...path]].js  →  Express (server/server.js)
+      │  └── /api/*    →  api/index.js  →  Express (server/server.js)
       │
       └── everything else → client/dist (Vite static build)
 ```
@@ -20,7 +20,7 @@ Because both live under one domain (e.g. `linkup.vercel.app`), the browser calls
 | File | Role |
 | --- | --- |
 | [vercel.json](../vercel.json) | Build command, output directory, rewrites, function config |
-| [api/[[...path]].js](../api/[[...path]].js) | Catch-all serverless entry — re-exports the Express app |
+| [api/index.js](../api/index.js) | Catch-all serverless entry — re-exports the Express app |
 | [server/server.js](../server/server.js) | Express app definition; only calls `app.listen()` when not on Vercel |
 | [server/config/database.js](../server/config/database.js) | Cached Mongo connection so warm invocations reuse the socket |
 | [package.json](../package.json) (root) | Backend deps at repo root so Vercel installs them once |
